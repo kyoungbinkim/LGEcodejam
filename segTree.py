@@ -21,6 +21,7 @@ def find(node, start, end, left, right) :
     
     if left > end or right < start :
         return 0
+ 
 
     if left <= start and end <= right :
         return tree[node]
@@ -50,5 +51,6 @@ def update2(node, index):
         
         ## update 로직
         tree[node] = tree[node*2] + tree[node*2+1]
+
 
 print(tree)
