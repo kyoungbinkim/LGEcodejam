@@ -1,20 +1,19 @@
 '''
-Binary Indexed Tree
+Binary Indexed Tree for Point Query and Range Update
 
 O(q * log n) + O(n * log n)
 q : 쿼리의 개수
 n : 데이터의 개수
 
+https://nahwasa.com/entry/%ED%8E%9C%EC%9C%85-%ED%8A%B8%EB%A6%ACFenwick-tree-BIT-%EA%B8%B0%EB%B3%B8-2D-lazy-propagationrange-update-point-query-range-update-range-query#range_update_+_point_query
 '''
 
 class BIT:
     def __init__(self, n, leafs):
         self.n = n
+        self.leafs = leafs
         self.tree = [0 for _ in range(n+1)]
-        for idx in range(n):
-            self.__updeteTree(idx, leafs[idx])
  
-    
     def __updeteTree(self,idx, value):
         idx = idx + 1
         while (idx <= self.n):
@@ -34,11 +33,8 @@ class BIT:
         self.__updeteTree(l, val)
         self.__updeteTree(h+1, -val)
     
-    def getRange(self, l, h):
-        return self.__getSum(h) - self.__getSum(l-1)
-    
     def getPoint(self, idx):
-        return self.__getSum(idx) - self.__getSum(idx-1)
+        return self.__getSum(idx) + self.leafs[idx]
 
 
 def test():
@@ -47,7 +43,5 @@ def test():
     print("getPoint(5) : ", bit.getPoint(5))
     print("getPoint(3) : ", bit.getPoint(3))
     
-    print("getRange(2, 5) : ", bit.getRange(2, 5))
-    print("getRange(3, 6) : ", bit.getRange(3, 6))
 
 test()
