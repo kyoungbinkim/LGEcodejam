@@ -27,13 +27,13 @@ class UnionFind:
         return self.p[x]
 
     def union(self, x, y):
-        rootX = self.find(x)
-        rootY = self.find(y)
-        if rootX != rootY:
-            if self.r[rootX] > self.r[rootY]:
-                self.p[rootY] = rootX
-            elif self.r[rootX] < self.r[rootY]:
-                self.p[rootX] = rootY
+        rtX = self.find(x)
+        rtY = self.find(y)
+        if rtX != rtY:
+            if self.r[rtX] > self.r[rtY]:
+                self.p[rtY] = rtX
+            elif self.r[rtX] < self.r[rtY]:
+                self.p[rtX] = rtY
             else:
-                self.p[rootY] = rootX
-                self.r[rootX] += 1
+                self.p[rtY] = rtX
+                self.r[rtX] += 1
