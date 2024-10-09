@@ -9,16 +9,12 @@ def ccw(A, B, C):
     x2, y2 = B
     x3, y3 = C
     
-    cross_product = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1)
-    if cross_product > 0:
-        return 1  # 반시계 방향
-    elif cross_product < 0:
-        return -1  # 시계 방향
-    else:
-        return 0  # 일직선
+    cp = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1)
+    return 1 if cp > 0 else -1 if cp < 0 else 0
+   
 
 # 예시 사용
-x1, y1 = 0, 0
+x1, y1 = 0, 2
 x2, y2 = 1, 1
 x3, y3 = 2, 0
 
