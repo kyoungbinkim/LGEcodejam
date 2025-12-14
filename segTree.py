@@ -22,7 +22,6 @@ def find(node, start, end, left, right) :
     if left > end or right < start :
         return 0
  
-
     if left <= start and end <= right :
         return tree[node]
  
@@ -30,7 +29,7 @@ def find(node, start, end, left, right) :
     return find(node*2, start, (start+end)//2, left, right) + find(node*2 + 1, (start+end)//2+1, end, left, right)
  
 ## TODO 리프부터 올라가는 것을 ㅗ바꿔
-def update(node, start, end, index) :
+def update(node, start, end, index, diff) :
  
     if index < start or index > end :
         return
@@ -42,8 +41,6 @@ def update(node, start, end, index) :
         update(node*2+1, (start+end)//2+1, end, index, diff)
 
 def update2(node, index):
-    
-    
     tree[node] = leafs[index]
     
     while node > 1:

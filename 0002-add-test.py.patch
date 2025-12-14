@@ -1,0 +1,21 @@
+From 56a65abb80f771055215ae8a4185a982725a3b39 Mon Sep 17 00:00:00 2001
+From: kim <kyoungbin1996@gmail.com>
+Date: Fri, 13 Sep 2024 12:06:26 +0900
+Subject: [PATCH 2/2] add: test.py
+
+---
+ test.py | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test.py
+
+diff --git a/test.py b/test.py
+new file mode 100644
+index 0000000..fdbc3c0
+--- /dev/null
++++ b/test.py
+@@ -0,0 +1,2 @@
++print("hello")
++
+-- 
+2.36.1
+
